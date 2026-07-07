@@ -67,7 +67,7 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot; /Y /I" />
+    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot; /Y /I;&#xD;&#xA;7z a &quot;$(SolutionDir)WorkshopDownloadSpinnerModule.zip&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot;" />
   </Target>
 
 </Project>

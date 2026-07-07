@@ -5,6 +5,7 @@
 
 # Build Output
 /WorkshopDownloadSpinnerModule/WorkshopDownloadSpinner.dll
+*.zip
 
 # User-specific files
 *.rsuser
