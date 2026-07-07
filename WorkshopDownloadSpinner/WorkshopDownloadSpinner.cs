@@ -25,7 +25,7 @@ namespace WorkshopDownloadSpinner
 
             SpinnerService = new GameObject("WorkshopDownloadSpinner").AddComponent<DownloadSpinnerService>();
 
-            Console.WriteLine($"WorkshopDownloadSpinner {Assembly.GetExecutingAssembly().GetName().Version} by Gamingtoday093 has been Initialized");
+            CommandWindow.Log($"WorkshopDownloadSpinner {Assembly.GetExecutingAssembly().GetName().Version} by Gamingtoday093 has been Initialized");
         }
 
         public void shutdown()

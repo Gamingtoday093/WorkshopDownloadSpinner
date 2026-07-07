@@ -86,17 +86,9 @@ namespace WorkshopDownloadSpinner.Services
             Console.WriteLine();
             SetConsoleInputEnabled(false);
 
-            Console.Write(downloadMessage);
-            Console.Write(' ');
-            Console.Write(NextSpinnerChar());
-            Console.Write(' ');
-            Console.Write(DownloadProgressBar());
-            Console.CursorLeft = 0;
-
             WaitForSeconds updateDelay = new(0.1f);
             while (true)
             {
-                yield return updateDelay;
                 Console.CursorLeft = 0;
 
                 Console.Write(downloadMessage);
@@ -104,6 +96,7 @@ namespace WorkshopDownloadSpinner.Services
                 Console.Write(NextSpinnerChar());
                 Console.Write(' ');
                 Console.Write(DownloadProgressBar());
+                yield return updateDelay;
             }
         }
 
