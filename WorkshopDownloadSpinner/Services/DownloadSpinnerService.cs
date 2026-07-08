@@ -47,17 +47,9 @@ namespace WorkshopDownloadSpinner.Services
             return SpinnerChars[SpinnerStep];
         }
 
-        private string DownloadProgressBar()
-        {
-            if (SteamGameServerUGC.GetItemDownloadInfo(WorkshopItem, out ulong bytesDownloaded, out ulong bytesTotal))
-                return DownloadProgressBar(bytesDownloaded, bytesTotal);
-            else
-                return DownloadProgressBar(0, 0);
-        }
-
         private string DownloadProgressBar(ulong bytesDownloaded, ulong bytesTotal)
         {
-            float progress = Mathf.Clamp01((float)bytesDownloaded / (float)bytesTotal);
+            float progress = bytesTotal > 0 ? Mathf.Clamp01((float)bytesDownloaded / (float)bytesTotal) : 0f;
             int progressSteps = Math.Clamp((int)(PROGRESS_BAR_LENGTH * progress), 0, PROGRESS_BAR_LENGTH);
 
             StringBuilder progressBar = new();
@@ -87,17 +79,20 @@ namespace WorkshopDownloadSpinner.Services
             SetConsoleInputEnabled(false);
 
             WaitForSeconds updateDelay = new(0.1f);
-            while (true)
+            while (SteamGameServerUGC.GetItemDownloadInfo(WorkshopItem, out ulong bytesDownloaded, out ulong bytesTotal))
             {
-                Console.CursorLeft = 0;
+                if (Console.CursorLeft != 0 && Console.BufferWidth > 0)
+                    Console.CursorLeft = 0;
 
                 Console.Write(downloadMessage);
                 Console.Write(' ');
                 Console.Write(NextSpinnerChar());
                 Console.Write(' ');
-                Console.Write(DownloadProgressBar());
+                Console.Write(DownloadProgressBar(bytesDownloaded, bytesTotal));
                 yield return updateDelay;
             }
+
+            StopSpinner();
         }
 
         public void StopSpinner()

@@ -45,10 +45,20 @@ namespace WorkshopDownloadSpinner
         {
             if (___currentDownload == PublishedFileId_t.Invalid) return;
             if (Instance.SpinnerService == null) return;
-
+            
             Instance.SpinnerService.StopSpinner();
             Instance.SpinnerService.StartSpinner(___currentDownload);
         }
+
+#if DEBUG
+        //[HarmonyPatch(typeof(DedicatedUGC), "onItemDownloaded")]
+        //[HarmonyPrefix]
+        //private static bool OnItemDownloadedPrefix(ref DownloadItemResult_t callback)
+        //{
+        //    callback.m_eResult = EResult.k_EResultFail;
+        //    return true;
+        //}
+#endif
 
         [HarmonyPatch(typeof(DedicatedUGC), "installDownloadedItem")]
         [HarmonyPostfix]

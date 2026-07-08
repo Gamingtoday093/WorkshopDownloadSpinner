@@ -10,7 +10,7 @@
   
 	<Authors>Gamingtoday093</Authors>
 	
-	<AssemblyVersion>1.0.0.1</AssemblyVersion>
+	<AssemblyVersion>1.0.0.2</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
   
     <RootNamespace>WorkshopDownloadSpinner</RootNamespace>
@@ -67,7 +67,7 @@
   </ItemGroup>
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot; /Y /I;&#xD;&#xA;7z a &quot;$(SolutionDir)WorkshopDownloadSpinnerModule.zip&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot;" />
+    <Exec Command="xcopy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot; /Y /I&#xD;&#xA;7z a &quot;$(SolutionDir)WorkshopDownloadSpinnerModule.zip&quot; &quot;$(SolutionDir)WorkshopDownloadSpinnerModule\&quot;" />
   </Target>
 
 </Project>
