@@ -10,7 +10,7 @@
   
 	<Authors>Gamingtoday093</Authors>
 	
-	<AssemblyVersion>1.0.0.2</AssemblyVersion>
+	<AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
   
     <RootNamespace>WorkshopDownloadSpinner</RootNamespace>
