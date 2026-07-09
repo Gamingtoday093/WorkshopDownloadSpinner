@@ -1,7 +1,7 @@
 # Unturned Server Workshop Download Spinner
 Spinner and Information when Downloading Workshop Items for Unturned.
 
-<img width="800" height="80" alt="WorkshopDownloadSpinner" src="https://github.com/user-attachments/assets/b375299d-4eb7-4876-b601-48794e9ce649" />
+<img width="800" height="80" alt="WorkshopDownloadSpinner" src=".github/assets/WorkshopDownloadSpinnerNew.gif" />
 
 *The Workshop Download Spinner is omitted from Logs and only appears in the Console.*
 
